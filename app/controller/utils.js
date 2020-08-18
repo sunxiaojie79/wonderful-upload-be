@@ -9,7 +9,7 @@ class UtilsController extends Controller {
       fontSize: 50,
       width: 100,
       height: 40,
-      noise:3,
+      noise: 3,
     });
     console.log('captcha', captcha.text);
     const { ctx } = this;
