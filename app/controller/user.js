@@ -38,18 +38,18 @@ class UserController extends BaseController {
     const user = await this.ctx.model.User.findOne({ email });
     return user;
   }
-  async login () {
+  async login() {
     const { ctx, app } = this;
     const { email, captcha, passwd } = ctx.request.body;
-    console.log('email', email)
+    console.log('email', email);
     if (captcha.toUpperCase() !== ctx.session.captcha.toUpperCase()) {
       return this.error('验证码错误');
     }
     const user = await this.ctx.model.User.findOne({
       email,
-      passwd: md5(passwd + HashSalt)
+      passwd: md5(passwd + HashSalt),
     });
-    if (!user) { 
+    if (!user) {
       return this.error('账号密码错误');
     }
     const token = jwt.sign({
@@ -57,13 +57,13 @@ class UserController extends BaseController {
       email,
     }, app.config.jwt.secret, {
       expiresIn: '1h',
-    })
+    });
     this.success({
       email,
       nickname: user.nickname,
       token,
-    })
-   }
+    });
+  }
   async info() { return this.message('注册成功'); }
   async verify() { return this.message('注册成功'); }
 }

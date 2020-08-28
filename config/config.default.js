@@ -39,6 +39,6 @@ module.exports = appInfo => {
     },
     jwt: {
       secret: 'jsonwentokensecret',
-    }
+    },
   };
 };
