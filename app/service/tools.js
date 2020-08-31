@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport({
 });
 
 class ToolService extends Service {
-  async sendEmail (email, subject, text, html) {
-    console.log(email, subject, html)
+  async sendEmail(email, subject, text, html) {
+    console.log(email, subject, html);
     const mailOptions = {
       from: userEmail,
       cc: userEmail,

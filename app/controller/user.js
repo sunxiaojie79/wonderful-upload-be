@@ -45,7 +45,7 @@ class UserController extends BaseController {
       return this.error('验证码错误');
     }
     if (emailcode !== ctx.session.emailcode) {
-      return this.error('邮箱验证码错误')
+      return this.error('邮箱验证码错误');
     }
     const user = await this.ctx.model.User.findOne({
       email,
