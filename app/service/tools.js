@@ -9,12 +9,13 @@ const transporter = nodemailer.createTransport({
   secureConnection: true,
   auth: {
     user: userEmail,
-    pass: '123456raul',
+    pass: 'JTSPMIWTGUJDLBIK',
   },
 });
 
 class ToolService extends Service {
-  async sendMail(email, subject, text, html) {
+  async sendEmail (email, subject, text, html) {
+    console.log(email, subject, html)
     const mailOptions = {
       from: userEmail,
       cc: userEmail,

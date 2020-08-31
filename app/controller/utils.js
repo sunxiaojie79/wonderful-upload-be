@@ -1,8 +1,8 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 const svgCaptcha = require('svg-captcha');
-class UtilsController extends Controller {
+class UtilsController extends BaseController {
   async captcha() {
     const captcha = svgCaptcha.create({
       size: 4,
@@ -23,7 +23,7 @@ class UtilsController extends Controller {
     const email = ctx.query.email;
     const code = Math.random().toString().slice(2, 6);
     console.log('邮箱：' + email + '验证码：' + code);
-    ctx.session.emmailcode = code;
+    ctx.session.emailcode = code;
     const subject = '开课吧验证码';
     const text = '';
     const html = `<h2>小开社区</h2><a href="https://kaikeba.com"><span>${code}</span></a>`;
