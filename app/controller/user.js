@@ -41,7 +41,6 @@ class UserController extends BaseController {
   async login() {
     const { ctx, app } = this;
     const { email, captcha, passwd } = ctx.request.body;
-    console.log('email', email);
     if (captcha.toUpperCase() !== ctx.session.captcha.toUpperCase()) {
       return this.error('验证码错误');
     }
