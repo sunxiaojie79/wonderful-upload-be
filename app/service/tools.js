@@ -1,4 +1,4 @@
-'use strict' 
+'use strict';
 
 const { Service } = require('egg');
 const nodemailer = require('nodemailer');
